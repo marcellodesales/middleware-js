@@ -1,0 +1,51 @@
+{
+  "name": "middleware-js",
+  "version": "1.0.0",
+  "description": "Application depending through middleware injection.",
+  "keywords": [
+    "gulp",
+    "grunt",
+    "coverage",
+    "istanbul",
+    "unit test",
+    "report",
+    "github badge"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/marcellodesales/middleware-js",
+  "bugs": {
+    "url": "https://github.com/marcellodesales/middleware-js/issues"
+  },
+  "author": {
+    "name": "Marcello de Sales",
+    "email": "Marcello_deSales@gmail.com",
+    "url": "https://github.com/marcellodesales"
+  },
+  "main": "./lib/middleware.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:marcellodesales/middleware-js.git"
+  },
+  "scripts": {
+    "pretest": "rm -rf coverage/ && jshint --reporter=node_modules/jshint-stylish lib/*.js test/*.js && ./node_modules/jscs/bin/jscs lib test",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report cobertura --report text --report html --report lcov -- -R spec",
+    "posttest": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "codacy-coverage": "1.1.2",
+    "coveralls": "2.11.3",
+    "fs-extra": "~0.26.2",
+    "istanbul": "0.4.1",
+    "jscs": "^2.0.0",
+    "jshint": "^2.5.0",
+    "jshint-stylish": "^2.0.1",
+    "mocha": "^2.2.5",
+    "mocha-lcov-reporter": "^1.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

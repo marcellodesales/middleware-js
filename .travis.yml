@@ -1,0 +1,17 @@
+sudo: false
+language: node_js
+node_js:
+- '0.12'
+- '0.11'
+- '0.10'
+- 'iojs'
+- '4.1'
+- '5.0'
+deploy:
+  provider: npm
+  email: marcello.desales@gmail.com
+  api_key:
+    secure: pgjFr5fV3/x92GM/SWS5Hqsu6zyuoGks4sdpuIykz1HpbxSMddv/iVAwHVnkDY04cmkVU90ENPdLDDO42sOwTxIOaDoVPpZZSyKIvm6EmFA/kLA+DYh1IyPfbuHSsXreIQXHhqCRQDo98e55UGyOpyCKfW+HLUXeiULMzPLQNN0=
+  on:
+    tags: true
+    branch: master
