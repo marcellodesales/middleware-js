@@ -42,7 +42,7 @@ Contributing
 
 We use the GitFlow branching model http://nvie.com/posts/a-successful-git-branching-model/.
 
-1. Fork it
+1. Fork this project.
 2. Create your feature branch (`git checkout -b feature/issue-444-Add-Rest-APIs origin/master --track`)
  * Adding the Jira ticket ID helps communicating where this feature is coming from.
 3. Commit your changes (`git commit -am 'Fix #444: Add support to REST-APIs'`)
