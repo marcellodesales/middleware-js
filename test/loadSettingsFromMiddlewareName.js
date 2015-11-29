@@ -4,7 +4,7 @@ var fs = require("fs");
 var fse = require("fs-extra");
 var path = require("path");
 
-var chai = require("sp-quality/test").chai();
+var chai = require("chai");
 var expect = chai.expect;
 
 var MiddlewareJs = require("../lib/middleware");

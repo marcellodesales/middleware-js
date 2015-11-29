@@ -1,6 +1,6 @@
 "use strict";
 
-var chai = require("sp-quality/test").chai();
+var chai = require("chai");
 var expect = chai.expect;
 
 var MiddlewareJs = require("../lib/middleware");
