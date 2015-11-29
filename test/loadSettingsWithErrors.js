@@ -20,7 +20,8 @@ describe("Middleware.js with Errors", function() {
       MiddlewareJs.instance().load("does/not/exist");
 
     } catch (middlewareNotLoaded) {
-      expect(middlewareNotLoaded).to.be.an("Object");
+      expect(middlewareNotLoaded).not.be.be.null;
+      expect(middlewareNotLoaded.message).to.equal("Cannot load middleware 'does/not/exist'");
     }
 
     done();
