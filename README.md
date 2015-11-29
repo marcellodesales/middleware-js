@@ -1,13 +1,12 @@
-Middleware.js
-=========================
+# Middleware.js
+
 [![Travis](https://api.travis-ci.org/marcellodesales/middleware-js.svg)](https://travis-ci.org/marcellodesales/middleware-js) [![npm version](https://badge.fury.io/js/middleware-js.svg)](http://badge.fury.io/js/middleware-js) [![Codacy Badge](https://www.codacy.com/project/badge/172621abbd81457d84ee5df6ebe13f91)](https://www.codacy.com/app/marcellodesales/middleware-js) [![Dependency Status](https://david-dm.org/marcellodesales/middleware-js.svg)](https://david-dm.org/marcellodesales/middleware-js) [![devDependency Status](https://david-dm.org/marcellodesales/middleware-js/dev-status.svg)](https://david-dm.org/marcellodesales/middleware-js#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/marcellodesales/middleware-js/badge.svg?branch=master&service=github)](https://coveralls.io/github/marcellodesales/middleware-js?branch=master) ![License](https://img.shields.io/badge/license-MIT-lightgray.svg)
 
 Declare middleware dependencies from your modules, that are injectable to your modules.
 
 [![NPM](https://nodei.co/npm/middleware-js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/middleware-js/)
 
-Requirements
-========
+# Requirements
 
 * Your module or application requires something that only the user knows how to setup.
 * You want to provide freedom to users to choose whatever depedency they want use.
