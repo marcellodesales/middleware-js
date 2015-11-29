@@ -1,6 +1,6 @@
 "use strict";
 
-var chai = require("sp-quality/test").chai();
+var chai = require("chai");
 var expect = chai.expect;
 
 var MiddlewareJs = require("../lib/middleware");
@@ -20,7 +20,8 @@ describe("Middleware.js with Errors", function() {
       MiddlewareJs.instance().load("does/not/exist");
 
     } catch (middlewareNotLoaded) {
-      expect(middlewareNotLoaded).to.be.an("Object");
+      expect(middlewareNotLoaded).not.be.be.null;
+      expect(middlewareNotLoaded.message).to.equal("Cannot load middleware 'does/not/exist'");
     }
 
     done();
