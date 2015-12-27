@@ -10,9 +10,9 @@ var expect = chai.expect;
 var MiddlewareJs = require("../lib/middleware");
 
 // describing the logger variable instantiated above.
-describe("Middleware.js Loader with Index", function() {
+describe("Middleware.js", function() {
 
-  beforeEach(function(done) {
+  before(function(done) {
     // create the middleware directory for the configuration
     var configMiddlewareDir = path.resolve(MiddlewareJs.APP_DIR, "middleware", "config");
     fse.mkdirsSync(configMiddlewareDir);
@@ -25,20 +25,57 @@ describe("Middleware.js Loader with Index", function() {
     done();
   });
 
-  afterEach(function(done) {
+  after(function(done) {
     // undo the config
     fse.removeSync(path.resolve(MiddlewareJs.APP_DIR, "middleware"));
 
     done();
   });
 
-  it("should load middleware using index file APP/middleware/config/index.js", function(done) {
-    var conf = MiddlewareJs.instance().load("middleware/config");
-    expect(conf).to.be.an("object");
-    expect(conf.isp.logging.console.level).to.equal("debug");
-    expect(conf.isp.monitoring.type).to.equal("newrelic");
-    expect(conf.superApp.server.secure).to.be.true;
+  describe("Using path notation", function() {
+    it("should load middleware using index file APP/middleware/config/index.js", function(done) {
+      var conf = MiddlewareJs.load("middleware/config");
+      expect(conf).to.be.an("object");
+      expect(conf.isp.logging.console.level).to.equal("debug");
+      expect(conf.isp.monitoring.type).to.equal("newrelic");
+      expect(conf.superApp.server.secure).to.be.true;
 
-    done();
+      done();
+    });
+
+    it("should load middleware using from() APP/middleware/config/index.js", function(done) {
+      var conf = MiddlewareJs.from(__dirname + "/..").load("middleware/config");
+      expect(conf).to.be.an("object");
+      expect(conf.isp.logging.console.level).to.equal("debug");
+      expect(conf.isp.monitoring.type).to.equal("newrelic");
+      expect(conf.superApp.server.secure).to.be.true;
+
+      done();
+    });
+
   });
+
+  describe("Using the dot notation", function() {
+    it("should load middleware using index file APP/middleware/config/index.js", function(done) {
+      var conf = MiddlewareJs.load("middleware.config");
+      expect(conf).to.be.an("object");
+      expect(conf.isp.logging.console.level).to.equal("debug");
+      expect(conf.isp.monitoring.type).to.equal("newrelic");
+      expect(conf.superApp.server.secure).to.be.true;
+
+      done();
+    });
+
+    it("should load middleware using from() APP/middleware/config/index.js", function(done) {
+      var conf = MiddlewareJs.from(__dirname + "/..").load("middleware.config");
+      expect(conf).to.be.an("object");
+      expect(conf.isp.logging.console.level).to.equal("debug");
+      expect(conf.isp.monitoring.type).to.equal("newrelic");
+      expect(conf.superApp.server.secure).to.be.true;
+
+      done();
+    });
+
+  });
+
 });
