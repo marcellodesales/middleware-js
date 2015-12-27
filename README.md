@@ -48,16 +48,20 @@ The module computes the APP directory by default and loads the module at the giv
  *path-notation*: You can use the path notation: "path/to/middleware". Specially when you are automating using files.
  *dot-notation*: You can use the dot notation: "path.to.middleware". Specially when you are automating using object-paths.
 
+The file in the path can either a file or a directory:
+
+* *file*: Can be used as a very simple middleware such as constants, simple modules etc.
+* *directory*: When dealing with complex middleware implementation, you may have multiple sub-modules that implement the given middleware. Very useful to only expose the middleware and not its implementation details.
+
 ```js
-  // Instead the combersome path calculation. DONT DO THIS ANYMORE!
-  var conf = require("../../../middleware/config");
-
-  // Loads APP_DIR/middleware/config. DO THIS INSTEAD!
+  // Loads APP_DIR/middleware/config.
   var config = MiddlewareJs.require("middleware.config");
-
-  // Loads APP_DIR/middleware/logger
-  var logger = MiddlewareJs.require("middleware/logger");
 ```
+
+The module loaded can be in either files:
+
+* APP_DIR/middleware/config.js: simpler configuration.
+* APP_DIR/middleware/config/index.js: more complex implementation with other sub-modules supporting it in the same directory.
 
 See the test cases `test/loadSettingsFromMiddleware.js` for complete details.
 
